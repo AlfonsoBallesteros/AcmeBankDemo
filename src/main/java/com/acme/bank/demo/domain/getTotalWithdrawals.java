@@ -5,7 +5,7 @@ import java.util.UUID;
 
 public interface getTotalWithdrawals {
 
-    UUID id();
+    UUID geId();
 
-    BigDecimal totalWithdrawals();
+    BigDecimal getTotalWithdrawals();
 }

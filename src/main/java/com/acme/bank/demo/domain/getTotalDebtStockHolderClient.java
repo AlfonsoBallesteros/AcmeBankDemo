@@ -5,7 +5,7 @@ import java.util.UUID;
 
 public interface getTotalDebtStockHolderClient {
 
-    UUID id();
+    UUID getId();
 
-    BigDecimal totalAccountDebt();
+    BigDecimal getTotalAccountDebt();
 }

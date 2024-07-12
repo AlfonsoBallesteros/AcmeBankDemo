@@ -20,7 +20,6 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api")
-@CrossOrigin("http://localhost:63343")
 public class AccountController {
 
     private final Logger log = LoggerFactory.getLogger(AccountController.class);

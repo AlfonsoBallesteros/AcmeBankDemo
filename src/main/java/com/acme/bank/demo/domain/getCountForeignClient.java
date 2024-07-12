@@ -4,5 +4,5 @@ import java.math.BigDecimal;
 
 public interface getCountForeignClient {
 
-    BigDecimal foreignClient();
+    Long getForeignClient();
 }

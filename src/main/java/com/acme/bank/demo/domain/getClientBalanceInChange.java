@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 import java.util.UUID;
 
 public interface getClientBalanceInChange {
-    UUID id();
+    UUID getId();
 
-    BigDecimal redeemBalance();
+    BigDecimal getRedeemBalance();
 }

@@ -5,7 +5,7 @@ import java.util.UUID;
 
 public interface getTotalAccountBalance {
 
-    UUID id();
+    UUID getId();
 
-    BigDecimal totalAccountBalance();
+    BigDecimal getTotalAccountBalance();
 }

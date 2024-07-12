@@ -4,7 +4,7 @@ import java.util.UUID;
 
 public interface getNumHolders {
 
-    UUID id();
+    UUID getId();
 
-    Long numHolder();
+    Long getNumHolder();
 }
