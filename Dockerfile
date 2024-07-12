@@ -7,5 +7,5 @@ CMD ["mvn", "-version"]
 FROM eclipse-temurin:17-jre-alpine AS deploy
 WORKDIR /workspace
 COPY --from=builder /workspace/target/*.jar ./app.jar
-EXPOSE 8888
+EXPOSE 8080
 CMD ["java", "-jar", "/workspace/app.jar"]
