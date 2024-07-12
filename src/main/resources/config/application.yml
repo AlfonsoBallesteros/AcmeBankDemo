@@ -1,0 +1,13 @@
+spring:
+  devtools:
+    restart:
+      enabled: false
+    livereload:
+      enabled: false
+  application:
+    name: acmebankdemo
+  profiles:
+    active: spring.profile.active
+    group:
+      dev:
+        - dev

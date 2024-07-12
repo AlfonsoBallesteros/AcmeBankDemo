@@ -1,0 +1,5 @@
+id;login;password;name;phone_number;activated
+b571b8a9-5083-4d39-8bd8-2cbade6cea02;admin;$2a$10$gSAhZrxMllrbgj/kkK9UceBPpChGWJA7SYIb1Mqo.n5aNLq1/oRrC;Administrator;315823659;true
+126c3b5e-b775-4879-a61c-6f9bf40a1b89;user;$2a$10$VEjxo0jq2YG9Rbk2HmX9S.k1uZBGYUHdUcid3g/vfiEl7lwWgOH/K;User;3215632569;true
+0956efad-8748-4818-b07c-99c0ddf91e0b;roadstrategistauxiliary;$2a$10$VEjxo0jq2YG9Rbk2HmX9S.k1uZBGYUHdUcid3g/vfiEl7lwWgOH/K;Road;3695821452;true
+bf9d9787-ba78-4977-9573-247d4b2dc8ed;elmaster;$2a$10$VEjxo0jq2YG9Rbk2HmX9S.k1uZBGYUHdUcid3g/vfiEl7lwWgOH/K;el master;3215478563;true

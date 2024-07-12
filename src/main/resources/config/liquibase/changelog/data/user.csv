@@ -1,0 +1,11 @@
+id;login;password;name;last_name;type_id;document_id;phone_number;activated
+c236dc8f-870b-4ef9-afef-0458894e136d;Melinda_Harber@yahoo.com;70a96f5c7d925b60b2b9e724d658364d66227c6f;Melinda;Harber;CEDULA;442329753;5869221520;true
+6347a898-4418-4917-a7de-8341208557bb;Joey_Swift@gmail.com;3dee9ef5cf3743167905c716c6b687b08a115020;Joey;Swift;CEDULA;978405370;4917527448;false
+3c21c917-2a3e-417f-b773-b4926110db34;James80@gmail.com;921aaea3fb59a3b2de4d923806c05f1022b602ae;James;Cummings;CEDULA;9503067035;9474695968;false
+c53b7b97-857b-472f-9c88-79f4dc93dfda;Wesley.Simonis-Pouros65@yahoo.com;1563b3dffb4f5a808a3664fb511f59032bc3c1df;Wesley;Simonis-Pouros;CEDULA;1683170780;1776369939;true
+16786c3c-e449-41b1-9e2f-74ab8391e59a;Jessie_Ratke@yahoo.com;6bfbfa4b5aa9529e3e98fc0993365ff5d1456f6f;Jessie;Ratke;CEDULA;5995436844;3754996671;true
+20055741-b89f-418d-af6a-427f348a207b;Wilma.Fadel@hotmail.com;6a966bc22e2efdf81a8108c79af5c352295fc123;Wilma;Fadel;CEDULA;6910704936;6597047874;true
+46e33f05-d79c-431b-97e0-705bc6d72024;Henry_Hirthe25@gmail.com;c87c1b2ac7321ae3649b7ddf8d479a92655f20ea;Henry;Hirthe;CEDULA;3014418464;9761930346;false
+527d7236-1e64-4335-b2e1-1960c333a7fa;Woodrow.Veum@gmail.com;14aeafd4a2032618fe07017e1af980a2a00d6d51;Woodrow;Veum;CEDULA;2927980033;6339097363;true
+439e1b8a-317c-450b-8f02-2d6bbcec89b8;Joseph_Hilpert@yahoo.com;51b8efaef9e31137700dd1e8ea53420043bf324a;Joseph;Hilpert;CEDULA;1161899832;2400339685;true
+7de5e983-9866-4db5-b2f5-0a9f9f3b0e81;Wilfred20@hotmail.com;8464e9f01bc85facf26a9b4bb68730677d110941;Wilfred;Swaniawski;CEDULA;7427248280;443300597;true

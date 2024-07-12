@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <changeSet id="00000000000001" author="alfonso">
+    </changeSet>
+
+    <changeSet id="00000000000003" author="alfonso">
+        <createTable tableName="usuario">
+            <column name="id" type="${uuidType}" defaultValueComputed="${uuid_function}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="login" type="varchar(50)">
+                <constraints unique="false" nullable="false" uniqueConstraintName="ux_user_login"/>
+            </column>
+            <column name="password" type="varchar(60)">
+                <constraints nullable="false" />
+            </column>
+            <column name="name" type="varchar(250)">
+                <constraints nullable="false" />
+            </column>
+            <column name="last_name" type="varchar(250)">
+                <constraints nullable="true" />
+            </column>
+            <column name="type_id" type="varchar(250)">
+                <constraints nullable="false" />
+            </column>
+            <column name="user_type" type="varchar(250)" defaultValue="USER">
+                <constraints nullable="true" />
+            </column>
+            <column name="document_id" type="varchar(250)">
+                <constraints nullable="false" />
+            </column>
+            <column name="phone_number" type="varchar(20)">
+                <constraints nullable="false" />
+            </column>
+            <column name="department" type="varchar(20)">
+                <constraints nullable="true" />
+            </column>
+            <column name="city" type="varchar(20)">
+                <constraints nullable="true" />
+            </column>
+            <column name="type_company" type="varchar(20)">
+                <constraints nullable="true" />
+            </column>
+            <column name="activated" type="boolean">
+                <constraints nullable="false" />
+            </column>
+            <column name="manager_id" type="${uuidType}"/>
+            <column name="created_date" type="timestamp" defaultValueDate="${now}">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_modified_date" type="timestamp"/>
+        </createTable>
+
+        <createTable tableName="authority">
+            <column name="name" type="varchar(50)">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+        </createTable>
+
+        <createTable tableName="user_authority">
+            <column name="user_id" type="${uuidType}">
+                <constraints nullable="false"/>
+            </column>
+            <column name="authority_name" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <createTable tableName="user_stockholder">
+            <column name="legal_user_id" type="${uuidType}">
+                <constraints nullable="false"/>
+            </column>
+            <column name="stockholder_id" type="${uuidType}">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey columnNames="user_id, authority_name" tableName="user_authority"/>
+
+        <addForeignKeyConstraint baseColumnNames="authority_name"
+                                 baseTableName="user_authority"
+                                 constraintName="fk_authority_name"
+                                 referencedColumnNames="name"
+                                 referencedTableName="authority"/>
+
+        <addForeignKeyConstraint baseColumnNames="user_id"
+                                 baseTableName="user_authority"
+                                 constraintName="fk_user_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="usuario"/>
+
+        <addForeignKeyConstraint baseColumnNames="manager_id"
+                                 baseTableName="usuario"
+                                 constraintName="fk_user_manager"
+                                 referencedColumnNames="id"
+                                 referencedTableName="usuario"/>
+
+        <addForeignKeyConstraint baseColumnNames="legal_user_id"
+                                 baseTableName="user_stockholder"
+                                 constraintName="fk_legal_user_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="usuario"/>
+
+        <addForeignKeyConstraint baseColumnNames="stockholder_id"
+                                 baseTableName="user_stockholder"
+                                 constraintName="fk_stockholder_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="usuario"/>
+
+        <loadData
+                file="config/liquibase/changelog/data/user.csv"
+                separator=";"
+                tableName="usuario">
+            <column name="activated" type="boolean"/>
+        </loadData>
+
+        <loadData
+                file="config/liquibase/changelog/data/authority.csv"
+                separator=";"
+                tableName="authority">
+            <column name="name" type="string"/>
+        </loadData>
+
+        <loadData
+                file="config/liquibase/changelog/data/user_authority.csv"
+                separator=";"
+                tableName="user_authority">
+        </loadData>
+
+    </changeSet>
+
+    <changeSet id="00000000000004" author="alfonso">
+        <createTable tableName="account">
+            <column name="id" type="${uuidType}" defaultValueComputed="${uuid_function}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="total_balance" type="numeric">
+                <constraints nullable="false"/>
+            </column>
+            <column name="available_balance" type="numeric">
+                <constraints nullable="false"/>
+            </column>
+            <column name="state" type="varchar(50)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="card_number" type="varchar(50)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="franchise" type="varchar(50)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="account_number" type="varchar(50)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="balance_in_exchange" type="numeric">
+                <constraints nullable="true"/>
+            </column>
+            <column name="account_type" type="varchar(50)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="created_date" type="timestamp" defaultValueDate="${now}">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_modified_date" type="timestamp"/>
+        </createTable>
+
+        <createTable tableName="user_account">
+            <column name="user_id" type="${uuidType}">
+                <constraints nullable="false"/>
+            </column>
+            <column name="account_id" type="${uuidType}">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addForeignKeyConstraint baseColumnNames="user_id"
+                                 baseTableName="user_account"
+                                 constraintName="fk_account_user_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="usuario"/>
+
+        <addForeignKeyConstraint baseColumnNames="account_id"
+                                 baseTableName="user_account"
+                                 constraintName="fk_account_account_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="account"/>
+    </changeSet>
+
+    <changeSet id="00000000000005" author="alfonso">
+        <createTable tableName="movement">
+            <column name="id" type="${uuidType}" defaultValueComputed="${uuid_function}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="transaction_number" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="movement_type" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="motion_value" type="numeric">
+                <constraints nullable="true"/>
+            </column>
+            <column name="account_id" type="${uuidType}">
+                <constraints nullable="true"/>
+            </column>
+            <column name="created_date" type="timestamp" defaultValueDate="${now}">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_modified_date" type="timestamp"/>
+        </createTable>
+
+        <addForeignKeyConstraint baseColumnNames="account_id"
+                                 baseTableName="movement"
+                                 constraintName="fk_movement_account_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="account"/>
+    </changeSet>
+
+</databaseChangeLog>

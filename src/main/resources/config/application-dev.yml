@@ -1,0 +1,46 @@
+logging:
+  level:
+    root: DEBUG
+    com.usco.demo.ecommerce: DEBUG
+    org.hibernate.SQL: DEBUG
+
+spring:
+  liquibase:
+    # Remove 'faker' if you do not want the sample data to be loaded automatically
+    contexts: dev
+    url: jdbc:postgresql://localhost:5432/acmebankdemo
+    user: usuario
+    password: contrasena
+    change-log: classpath:/config/liquibase/master.xml
+    enabled: true
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:postgresql://localhost:5432/acmebankdemo
+    username: usuario
+    password: contrasena
+    hikari:
+      pool-name: Hikari
+      auto-commit: false
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: none
+
+server:
+  port: 8080
+
+springdoc:
+  swagger-ui:
+    path: /swagger-doc/swagger-ui.html
+
+application:
+  security:
+    authentication:
+      jwt:
+        base64-secret: 999j8ia4SzcWf2S04oB/5kmvwgbmgnqNiAu1z5bZgClgcAJfHKa85vjKmMDP1DIKBYrZ/V11D8kNB/b4uivZBv4xOnhR1Q7utHsCRlFSxxutvf7M636nCwAEIsxJiqGiyl85M95rHSusbv+A5WZVRCRW/6SEYkSS6B2nshkjI2U=
+        token-validity-in-seconds: 86400
+
